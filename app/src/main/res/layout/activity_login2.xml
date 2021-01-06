@@ -59,7 +59,7 @@
                 android:focusable="true"
                 android:maxLength="13"
                 android:textColorHint="#BBBBBB"
-                android:inputType="number"
+                android:inputType="text"
                 android:layout_marginLeft="13dp"
                 android:hint="请输入账号"
                 android:textSize="@dimen/font_content_15"

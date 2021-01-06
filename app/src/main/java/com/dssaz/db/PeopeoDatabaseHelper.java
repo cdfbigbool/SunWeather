@@ -51,6 +51,8 @@ public class PeopeoDatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             throw new RuntimeException("建表"+DB_NAME+"失败");
         }
+        Log.d("meee","("+Thread.currentThread().getStackTrace()[2].getFileName()+":"+Thread.currentThread().getStackTrace()[2].getLineNumber()+")\n"
+                +"insertData");
         RuntimeExceptionDao<People, Integer> dao = getPeopleRuntimeDao();
         //在创建数据库时插入一些数据用于测试
         People people = new People();

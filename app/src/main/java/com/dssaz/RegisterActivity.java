@@ -1,19 +1,18 @@
 package com.dssaz;
 
-import android.graphics.Color;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.dssaz.base.BaseActivity;
+import com.dssaz.db.User;
+import com.dssaz.db.UserDatabase;
 import com.dssaz.listener.OnSecondClickListener;
+import com.dssaz.utils.Md5Utils;
 import com.dssaz.utils.StatusBarUtil;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 public class RegisterActivity extends BaseActivity {
     @Override
@@ -21,21 +20,17 @@ public class RegisterActivity extends BaseActivity {
         return R.layout.activity_register;
     }
 
-    private Button btn_login;
-    private TextView tv_register;
-    private EditText et_phone;
+    private Button btn_register;
+    private EditText et_username;
     private EditText et_pwd;
+    RuntimeExceptionDao<User, Integer> dao = UserDatabase.getInstance().getDao();
+
 
     @Override
     protected void initView() {
-        btn_login = findViewById(R.id.btn_login);
-        tv_register = findViewById(R.id.tv_register);
-        et_phone = findViewById(R.id.et_phone);
+        btn_register = findViewById(R.id.btn_login);
+        et_username = findViewById(R.id.et_phone);
         et_pwd = findViewById(R.id.et_pwd);
-
-        SpannableStringBuilder style = new SpannableStringBuilder("还没有账号？马上注册");
-        style.setSpan(new ForegroundColorSpan(Color.parseColor("#262628")), 6, 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        tv_register.setText(style);
     }
 
     @Override
@@ -50,21 +45,29 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void addListeners() {
-        btn_login.setOnClickListener(new OnSecondClickListener() {
+        btn_register.setOnClickListener(new OnSecondClickListener() {
             @Override
             public void onSecondClick(View v) {
-                //todo login
-            }
-        });
-        tv_register.setOnClickListener(new OnSecondClickListener() {
-            @Override
-            public void onSecondClick(View v) {
-                //todo register
-                //startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                String username = et_username.getEditableText().toString();
+                String pwd = et_pwd.getEditableText().toString();
+
+                User user = UserDatabase.queryByUsername(dao, username);
+                if (user!=null){
+                    toast("该账号已经被注册");
+                    return;
+                }
+
+                user=new User();
+                user.setType(0);
+                user.setUsername(username);
+                user.setPassword(Md5Utils.getMD5(pwd));
+                dao.create(user);
+                toast("注册成功,请登录");
+                finish();
             }
         });
 
-        et_phone.addTextChangedListener(new TextWatcher() {
+        et_username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -100,8 +103,8 @@ public class RegisterActivity extends BaseActivity {
     }
 
     private void updateEnsureButtonStatus(){
-        boolean username = et_phone.getEditableText().toString().length() > 0;
+        boolean username = et_username.getEditableText().toString().length() > 0;
         boolean pwd = et_pwd.getEditableText().toString().length() > 0;
-        btn_login.setEnabled(username&&pwd);
+        btn_register.setEnabled(username&&pwd);
     }
 }
