@@ -1,6 +1,5 @@
 package com.dssaz;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
@@ -16,10 +15,10 @@ import com.dssaz.base.BaseActivity;
 import com.dssaz.listener.OnSecondClickListener;
 import com.dssaz.utils.StatusBarUtil;
 
-public class LoginActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity {
     @Override
     protected int setContentViewId() {
-        return R.layout.activity_login2;
+        return R.layout.activity_register;
     }
 
     private Button btn_login;
@@ -60,8 +59,8 @@ public class LoginActivity extends BaseActivity {
         tv_register.setOnClickListener(new OnSecondClickListener() {
             @Override
             public void onSecondClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-
+                //todo register
+                //startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
