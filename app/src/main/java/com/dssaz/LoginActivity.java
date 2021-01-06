@@ -61,7 +61,6 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onSecondClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-
             }
         });
 
