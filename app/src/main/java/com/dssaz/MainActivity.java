@@ -55,8 +55,6 @@ public class MainActivity extends BaseActivity {
         if (serializable!=null){
             user=(User)serializable;
         }
-
-
     }
 
     @Override
@@ -79,6 +77,15 @@ public class MainActivity extends BaseActivity {
             public void onClick(Exam exam, int position) {
                 Log.d("meee","("+Thread.currentThread().getStackTrace()[2].getFileName()+":"+Thread.currentThread().getStackTrace()[2].getLineNumber()+")\n"
                         +"position:"+position+",exam:"+exam);
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExamDetailActivity.start(user,0,MainActivity.this);
+//                ExamDetailActivity.start(user,1,MainActivity.this);
+//                ExamDetailActivity.start(user,2,MainActivity.this);
+                finish();
             }
         });
     }
