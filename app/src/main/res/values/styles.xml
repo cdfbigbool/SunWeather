@@ -23,7 +23,11 @@
 
 
 
-
+    <style name="button_normal">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:textColor">@color/norm_white</item>
+        <item name="android:textSize">@dimen/font_content_15</item>
+    </style>
 
 
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--输入框边距-->
+    <dimen name="input_view_margin">19dp</dimen>
+    <!--圆角-->
+    <dimen name="corner_radius">4dp</dimen>
+    <!--按钮高度-->
+    <dimen name="button_height">48.0dip</dimen>
+
+    <dimen name="line_height">0.5dip</dimen>
+
+
+
+    <!-- content 常用字体大小 -->
+    <dimen name="bottom_tab_font_size">11sp</dimen>
+    <dimen name="font_content_36">36sp</dimen>
+    <dimen name="font_content_30">30sp</dimen>
+    <dimen name="font_content_25">25sp</dimen>
+
+    <dimen name="font_content_18">18sp</dimen>
+    <dimen name="font_content_17">17sp</dimen>
+    <dimen name="font_content_16">16sp</dimen>
+
+
+    <dimen name="font_content_15">15sp</dimen>
+
+    <dimen name="font_content_14">14sp</dimen>
+    <!--标题-->
+    <dimen name="font_content_19">19sp</dimen>
+
+    
+    
+
+
+    <!-- 左右常用边距 -->
+    <dimen name="nine">9dp</dimen>
+    <dimen name="margin">14dp</dimen>
+    <dimen name="margin_face">15dp</dimen>
+    <dimen name="interval">24dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="margin_right">5dp</dimen>
+    <dimen name="finder_view_magin_top">50dp</dimen>
+
+
+
+    <!-- 离左右间距 -->
+    <dimen name="button_left">30px</dimen>
+    <dimen name="button_right">35px</dimen>
+    <!-- topbar 高度 -->
+    <dimen name="topbar_width">56.0dip</dimen>
+    <!-- topbar 主标题字体 -->
+    <dimen name="headline_one">18sp</dimen>
+    <!-- topbar 副标题字体 -->
+    <dimen name="headline_two">14sp</dimen>
+
+
+    <!--pattern lock-->
+    <dimen name="pattern_lock_path_width">3dp</dimen>
+    <dimen name="pattern_lock_dot_size">10dp</dimen>
+    <dimen name="pattern_lock_dot_selected_size">24dp</dimen>
+</resources>
