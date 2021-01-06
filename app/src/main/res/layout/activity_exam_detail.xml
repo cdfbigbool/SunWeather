@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ExamDetailActivity">
 
-    <Spinner
-        android:id="@+id/sp"
-        android:visibility="gone"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -29,13 +19,14 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp">
             <TextView
                 android:gravity="center"
                 android:text="主题"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/et_subject"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
@@ -44,7 +35,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp">
             <TextView
                 android:gravity="center"
                 android:text="日期"
@@ -63,7 +54,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp">
             <TextView
                 android:gravity="center"
                 android:text="实施者"
@@ -78,6 +69,80 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:gravity="center"
+                android:text="一级分类"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <Spinner
+                android:id="@+id/sp_one"
+                android:textSize="23sp"
+                android:gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:gravity="center"
+                android:text="二级分类"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <Spinner
+                android:id="@+id/sp_two"
+                android:textSize="23sp"
+                android:gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:gravity="center"
+                android:text="三级分类"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <Spinner
+                android:id="@+id/sp_three"
+                android:textSize="23sp"
+                android:gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <TextView
+                android:gravity="center"
+                android:text="内容"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/et_detail"
+                android:textSize="23sp"
+                android:gravity="center_vertical|left"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -118,7 +183,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="取消" />
+            android:text="返回" />
 
         <Button
             android:id="@+id/btn_pass"

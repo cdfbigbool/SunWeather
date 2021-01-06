@@ -75,18 +75,37 @@ public class MainActivity extends BaseActivity {
         elv.setOnClickItem(new ExamineListView.onClickItem() {
             @Override
             public void onClick(Exam exam, int position) {
-                Log.d("meee","("+Thread.currentThread().getStackTrace()[2].getFileName()+":"+Thread.currentThread().getStackTrace()[2].getLineNumber()+")\n"
-                        +"position:"+position+",exam:"+exam);
+                if (user.getType()==1){//管理员
+
+                    //todo 审核
+                    ExamDetailActivity.start(user,2,exam,MainActivity.this);
+                    finish();
+                    return;
+                }
+                ExamDetailActivity.start(user,1,exam,MainActivity.this);
+                finish();
+
+
+
             }
         });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExamDetailActivity.start(user,0,MainActivity.this);
-//                ExamDetailActivity.start(user,1,MainActivity.this);
-//                ExamDetailActivity.start(user,2,MainActivity.this);
                 finish();
             }
         });
+    }
+
+    private long lastBackClicked;
+    @Override
+    public void onBackPressed() {
+        if ((System.currentTimeMillis()-lastBackClicked)>1000){
+            lastBackClicked=System.currentTimeMillis();
+            toast("再次点击后退将退出应用");
+            return;
+        }
+        finish();
     }
 }

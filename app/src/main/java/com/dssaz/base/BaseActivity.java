@@ -272,4 +272,9 @@ public class BaseActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }

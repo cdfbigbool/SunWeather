@@ -4,10 +4,12 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 
 //表名
 @DatabaseTable(tableName = "tb_exam")
-public class Exam {
+public class Exam implements Serializable {
     @DatabaseField(generatedId = true)
     private int id;
 
@@ -35,6 +37,9 @@ public class Exam {
     @DatabaseField(columnName = "reason")
     private String reason;
 
+    //0,待审核
+    //1,审核通过
+    //2,审核驳回
     @DatabaseField(columnName = "status",dataType = DataType.INTEGER)
     private int status;
 
