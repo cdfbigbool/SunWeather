@@ -5,6 +5,7 @@ import xunsky.base.listview_adapter.HolderAdapter.LvAdapter;
 import xunsky.base.listview_adapter.HolderAdapter.LvCommonViewHolder;
 import xunsky.base.listview_adapter.LvBaseAdapter;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,7 +23,10 @@ import com.dssaz.base.BaseActivity;
 import com.dssaz.db.User;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ExamDetailActivity extends BaseActivity {
 
@@ -51,6 +56,8 @@ public class ExamDetailActivity extends BaseActivity {
     private Button btn_fail;
     private Button btn_withdraw;
 
+    private TextView tv_date;
+
     @Override
     protected void initView() {
         sp=findViewById(R.id.sp);
@@ -60,6 +67,8 @@ public class ExamDetailActivity extends BaseActivity {
         btn_pass=findViewById(R.id.btn_pass);
         btn_fail=findViewById(R.id.btn_fail);
         btn_withdraw=findViewById(R.id.btn_withdraw);
+
+        tv_date=findViewById(R.id.tv_date);
     }
 
     @Override
@@ -118,5 +127,30 @@ public class ExamDetailActivity extends BaseActivity {
                 btn_fail.setVisibility(View.VISIBLE);
                 break;
         }
+    }
+
+    @Override
+    protected void addListeners() {
+        tv_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar mcalendar = Calendar.getInstance(); // 获取当前时间 — 年、月、日
+                int year = mcalendar.get(Calendar.YEAR); // 得到当前年
+                int month = mcalendar.get(Calendar.MONTH); // 得到当前月
+                final int day = mcalendar.get(Calendar.DAY_OF_MONTH); // 得到当前日
+                new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        SimpleDateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd");
+                        mcalendar.set(year,month,dayOfMonth);
+                        String format = dateformat.format(new Date(mcalendar.getTimeInMillis()));
+                        tv_date.setText(format);
+                    }
+                }, year,month,day).show();
+            }
+        });
+
+
     }
 }
