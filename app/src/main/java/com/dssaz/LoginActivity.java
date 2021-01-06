@@ -53,6 +53,17 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void setView() {
         StatusBarUtil.setStatusBar(this, true, false);
+
+        //todo mock
+        et_pwd.setText("1");
+        et_username.setText("1");
+        btn_login.setEnabled(true);
+        btn_login.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_login.performClick();
+            }
+        }, 500);
     }
 
 

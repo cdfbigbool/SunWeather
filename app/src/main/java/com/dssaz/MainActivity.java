@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.dssaz.base.BaseActivity;
 import com.dssaz.db.Exam;
@@ -15,6 +16,7 @@ import com.dssaz.db.PeopeoDatabaseHelper;
 import com.dssaz.db.People;
 import com.dssaz.db.User;
 import com.dssaz.ui.ExamineListView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.io.Serializable;
@@ -31,6 +33,8 @@ public class MainActivity extends BaseActivity {
 
     private User user;
     private ExamineListView elv;
+    private TextView tv_user;
+    private FloatingActionButton fab;
     RuntimeExceptionDao<Exam, Integer> dao = ExamDatabase.getInstance().getDao();
 
     @Override
@@ -41,6 +45,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         elv=findViewById(R.id.elv_exams);
+        tv_user=findViewById(R.id.tv_user);
+        fab=findViewById(R.id.fab);
     }
 
     @Override
@@ -50,13 +56,20 @@ public class MainActivity extends BaseActivity {
             user=(User)serializable;
         }
 
-        List<Exam> exams = dao.queryForAll();
-        elv.setItems(exams);
+
     }
 
     @Override
     protected void setView() {
-        super.setView();
+        List<Exam> exams = dao.queryForAll();
+        elv.setItems(exams);
+
+        if (user!=null){
+            tv_user.setText("你好:"+user.getUsername()+" ");
+        }
+
+        boolean b=user!=null&&user.getType()!=1;
+        fab.setVisibility(b?View.VISIBLE: View.INVISIBLE);
     }
 
     @Override
