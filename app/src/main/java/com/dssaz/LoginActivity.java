@@ -74,6 +74,9 @@ public class LoginActivity extends BaseActivity {
                     toast("密码错误");
                     return;
                 }
+
+                MainActivity.start(user,LoginActivity.this);
+                finish();
                 //todo login
             }
         });

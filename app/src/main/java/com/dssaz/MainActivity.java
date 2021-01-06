@@ -2,35 +2,42 @@ package com.dssaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.dssaz.base.BaseActivity;
 import com.dssaz.db.PeopeoDatabaseHelper;
 import com.dssaz.db.People;
+import com.dssaz.db.User;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    RuntimeExceptionDao<People, Integer> dao = PeopeoDatabaseHelper.getInstance().getPeopleRuntimeDao();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+public class MainActivity extends BaseActivity {
+    private static final String TAG_NAME="MainActivity.username";
+    public static void  start(User user, Context context){
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(TAG_NAME,user.getUsername());
+        context.startActivity(intent);
     }
 
-    public void test(View view) {
-        People people = new People();
-        people.setName("小黄");
-        people.setAge(18);
-        dao.create(people);
+    private String username;
 
-        List<People> peoples = dao.queryForAll();
-        for (int i = 0; i < peoples.size(); i++) {
-            People p = peoples.get(i);
-            Log.d("meee", getClass() + ":\n" + "people:" + p);
-        }
+    @Override
+    protected int setContentViewId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initDatas() {
+        username=getIntent().getStringExtra(TAG_NAME);
+    }
+
+    @Override
+    protected void setView() {
+        super.setView();
     }
 }
