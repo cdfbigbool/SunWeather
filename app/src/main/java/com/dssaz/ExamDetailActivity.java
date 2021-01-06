@@ -106,7 +106,6 @@ public class ExamDetailActivity extends BaseActivity {
             throw new RuntimeException("user must be not null");
         }
         int intExtra = getIntent().getIntExtra(TAG_TYPE, -1);
-        Log.d("meee","intExtra"+intExtra);
 
         if (intExtra==-1){
             throw new RuntimeException("type error");
@@ -204,6 +203,15 @@ public class ExamDetailActivity extends BaseActivity {
                 tv_date.setText(exam.getTime());
                 et_subject.setText(exam.getSubject());
                 et_detail.setText(exam.getDetail());
+
+                et_detail.setEnabled(false);
+                et_subject.setEnabled(false);
+                tv_date.setEnabled(false);
+                sp_one.setEnabled(false);
+                sp_two.setEnabled(false);
+                sp_three.setEnabled(false);
+
+
                 break;
         }
     }
@@ -313,6 +321,47 @@ public class ExamDetailActivity extends BaseActivity {
                         .update(exam);
                 MainActivity.start(user, mContext);
                 finish();
+            }
+        });
+        btn_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (exam.getStatus()!=0){
+                    toast("操作失败,该申请已经被通过/驳回");
+                    return;
+                }
+                exam.setStatus(1);
+                exam.setExamminor(user.getUsername());
+                ExamDatabase.getInstance()
+                        .getDao()
+                        .update(exam);
+                MainActivity.start(user, mContext);
+                finish();
+            }
+        });
+        btn_fail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (exam.getStatus()!=0){
+                    toast("操作失败,该申请已经被通过/驳回");
+                    return;
+                }
+
+
+
+                showLoginPasswordDialog(new LoginPasswordCallback() {
+                    @Override
+                    public void callback(String pwd) {
+                        exam.setStatus(2);
+                        exam.setExamminor(user.getUsername());
+                        exam.setReason(pwd);
+                        ExamDatabase.getInstance()
+                            .getDao()
+                            .update(exam);
+                        MainActivity.start(user, mContext);
+                        finish();
+                    }
+                });
             }
         });
     }

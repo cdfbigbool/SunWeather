@@ -55,8 +55,8 @@ public class LoginActivity extends BaseActivity {
         StatusBarUtil.setStatusBar(this, true, false);
 
         //todo mock
-        et_pwd.setText("1");
-        et_username.setText("1");
+        et_pwd.setText("admin");
+        et_username.setText("admin");
         btn_login.setEnabled(true);
         btn_login.postDelayed(new Runnable() {
             @Override
@@ -88,7 +88,6 @@ public class LoginActivity extends BaseActivity {
 
                 MainActivity.start(user,LoginActivity.this);
                 finish();
-                //todo login
             }
         });
         tv_register.setOnClickListener(new OnSecondClickListener() {

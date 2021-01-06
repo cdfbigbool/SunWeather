@@ -179,13 +179,6 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="返回" />
-
-        <Button
             android:id="@+id/btn_pass"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -200,5 +193,12 @@
             android:layout_weight="1"
             android:text="驳回"
             android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="返回" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
