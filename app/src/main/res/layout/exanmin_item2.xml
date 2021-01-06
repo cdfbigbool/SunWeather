@@ -6,52 +6,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_subject"
         android:text="主题"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_exector"
         android:text="实践者"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_one"
         android:text="一级分类"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_two"
         android:text="二级分类"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_three"
         android:text="三级分类"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_detail"
         android:text="详情"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_time"
         android:text="实践时间"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_exam_status"
         android:text="审核状态"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_fail_reason"
         android:text="不通过理由"
         android:layout_height="50dp"
         android:layout_width="200dp" />
-    <com.dssaz.ui.ExamHeaderTextView
+    <com.dssaz.ui.ExamTextView
         android:id="@+id/tv_examiner"
         android:text="审核人"
         android:layout_height="50dp"

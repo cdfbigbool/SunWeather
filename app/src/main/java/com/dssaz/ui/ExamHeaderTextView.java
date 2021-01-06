@@ -9,18 +9,18 @@ import android.view.Gravity;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-public class ExamTextView extends AppCompatTextView {
-    public ExamTextView(Context context) {
+public class ExamHeaderTextView extends AppCompatTextView {
+    public ExamHeaderTextView(Context context) {
         super(context);
         init(context);
     }
 
-    public ExamTextView(Context context, AttributeSet attrs) {
+    public ExamHeaderTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public ExamTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ExamHeaderTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -40,7 +40,7 @@ public class ExamTextView extends AppCompatTextView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //canvas.drawLine(0, lineWidth/2, getWidth(), lineWidth/2, paint);
+        canvas.drawLine(0, lineWidth/2, getWidth(), lineWidth/2, paint);
         canvas.drawLine(0, getHeight() - lineWidth/2, getWidth(), getHeight() - lineWidth/2, paint);
         canvas.drawLine(getWidth()-lineWidth/2,0,getWidth()-lineWidth/2,getHeight(),paint);
         canvas.drawLine(getWidth()-lineWidth/2,0,getWidth()-lineWidth/2,getHeight(),paint);

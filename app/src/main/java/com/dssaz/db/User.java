@@ -4,10 +4,12 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 
 //表名
 @DatabaseTable(tableName = "tb_user")
-public class User {
+public class User implements Serializable {
     public User() {
     }
 
