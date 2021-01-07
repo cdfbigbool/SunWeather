@@ -46,19 +46,19 @@ public class ExamDatabase extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             throw new RuntimeException("建表"+DB_NAME+"失败");
         }
-        RuntimeExceptionDao<Exam, Integer> dao = getDao();
-        Exam exam = new Exam();
-        exam.setSubject("subject");
-        exam.setExector("exector");
-        exam.setOne("one");
-        exam.setTwo("two");
-        exam.setThree("three");
-        exam.setDetail("detail");
-        exam.setTime("time");
-        exam.setReason("reason");
-        exam.setStatus(1);
-        exam.setExamminor("examminor");
-        dao.create(exam);
+//        RuntimeExceptionDao<Exam, Integer> dao = getDao();
+//        Exam exam = new Exam();
+//        exam.setSubject("subject");
+//        exam.setExector("exector");
+//        exam.setOne("one");
+//        exam.setTwo("two");
+//        exam.setThree("three");
+//        exam.setDetail("detail");
+//        exam.setTime("time");
+//        exam.setReason("reason");
+//        exam.setStatus(1);
+//        exam.setExamminor("examminor");
+//        dao.create(exam);
     }
 
     @Override
