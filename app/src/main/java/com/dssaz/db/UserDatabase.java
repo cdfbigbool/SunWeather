@@ -50,11 +50,6 @@ public class UserDatabase extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             throw new RuntimeException("建表"+DB_NAME+"失败");
         }
-        User user = new User();
-        user.setType(1);
-        user.setPassword(Md5Utils.getMD5("admin"));
-        user.setUsername("admin");
-        getDao().create(user);
     }
 
     @Override
